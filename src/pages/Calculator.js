@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { appendExpression, cls, calc } from '../slices/expressionSlice';
 const Calculator = () => {
-  const [result, setResult] = useState('');
+  const result = useSelector((state) => state.expression);
+  const dispatch = useDispatch();
 
   const handleClick = (e) => {
-    setResult(result.concat(e.target.name));
+    dispatch(appendExpression(e.target.name));
   };
 
   const clear = () => {
-    setResult('');
+    dispatch(cls());
   };
 
   const calculate = () => {
     try {
-      setResult(eval(result).toString());
+      dispatch(calc());
     } catch (error) {
-      setResult('Error');
+      dispatch(calc());
     }
   };
 

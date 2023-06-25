@@ -4,14 +4,23 @@ const initialState = '';
 
 const expressionSlice = createSlice({
   name: 'expression',
-  initialState: { value: initialState },
+  initialState,
   reducers: {
-    expressionFun: (state, action) => {
-      state.value = action.payload;
+    appendExpression: (state, action) => {
+      return state + action.payload;
+    },
+    cls: () => initialState,
+    calc: (state) => {
+      try {
+        // Evaluate the expression using eval()
+        const result = eval(state);
+        return result.toString();
+      } catch (error) {
+        return 'Error';
+      }
     }
   }
 });
 
-const { expressionFun } = expressionSlice.actions;
+export const { appendExpression, cls, calc } = expressionSlice.actions;
 export default expressionSlice.reducer;
-export { expressionFun };
