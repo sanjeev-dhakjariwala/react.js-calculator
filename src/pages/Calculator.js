@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { appendExpression, cls, calc } from '../slices/expressionSlice';
+import Button from '../components/Button';
+
 const Calculator = () => {
   const result = useSelector((state) => state.expression);
   const dispatch = useDispatch();
 
-  const handleClick = (e) => {
-    dispatch(appendExpression(e.target.name));
-  };
+  // const handleClick = (e) => {
+  //   dispatch(appendExpression(e.target.name));
+  // };
 
   const clear = () => {
     dispatch(cls());
@@ -44,111 +46,21 @@ const Calculator = () => {
           >
             =
           </button>
-          <button
-            className="bg-gray-300 hover:bg-gray-400 rounded p-2"
-            name="+"
-            onClick={handleClick}
-          >
-            +
-          </button>
-          <button
-            className="bg-gray-300 hover:bg-gray-400 rounded p-2"
-            name="-"
-            onClick={handleClick}
-          >
-            -
-          </button>
-          <button
-            className="bg-gray-300 hover:bg-gray-400 rounded p-2"
-            name="*"
-            onClick={handleClick}
-          >
-            *
-          </button>
-          <button
-            className="bg-gray-300 hover:bg-gray-400 rounded p-2"
-            name="/"
-            onClick={handleClick}
-          >
-            /
-          </button>
-          <button
-            className="bg-gray-300 hover:bg-gray-400 rounded p-2"
-            name="7"
-            onClick={handleClick}
-          >
-            7
-          </button>
-          <button
-            className="bg-gray-300 hover:bg-gray-400 rounded p-2"
-            name="8"
-            onClick={handleClick}
-          >
-            8
-          </button>
-          <button
-            className="bg-gray-300 hover:bg-gray-400 rounded p-2"
-            name="9"
-            onClick={handleClick}
-          >
-            9
-          </button>
-          <button
-            className="bg-gray-300 hover:bg-gray-400 rounded p-2"
-            name="4"
-            onClick={handleClick}
-          >
-            4
-          </button>
-          <button
-            className="bg-gray-300 hover:bg-gray-400 rounded p-2"
-            name="5"
-            onClick={handleClick}
-          >
-            5
-          </button>
-          <button
-            className="bg-gray-300 hover:bg-gray-400 rounded p-2"
-            name="6"
-            onClick={handleClick}
-          >
-            6
-          </button>
-          <button
-            className="bg-gray-300 hover:bg-gray-400 rounded p-2"
-            name="1"
-            onClick={handleClick}
-          >
-            1
-          </button>
-          <button
-            className="bg-gray-300 hover:bg-gray-400 rounded p-2"
-            name="2"
-            onClick={handleClick}
-          >
-            2
-          </button>
-          <button
-            className="bg-gray-300 hover:bg-gray-400 rounded p-2"
-            name="3"
-            onClick={handleClick}
-          >
-            3
-          </button>
-          <button
-            className="col-span-2 bg-gray-300 hover:bg-gray-400 rounded p-2"
-            name="0"
-            onClick={handleClick}
-          >
-            0
-          </button>
-          <button
-            className="bg-gray-300 hover:bg-gray-400 rounded p-2"
-            name="."
-            onClick={handleClick}
-          >
-            .
-          </button>
+          <Button label="+" />
+          <Button label="-" />
+          <Button label="*" />
+          <Button label="/" />
+          <Button label="7" />
+          <Button label="8" />
+          <Button label="9" />
+          <Button label="4" />
+          <Button label="5" />
+          <Button label="6" />
+          <Button label="1" />
+          <Button label="2" />
+          <Button label="3" />
+          <Button label="0" className="col-span-2" />
+          <Button label="." />
         </div>
       </div>
     </div>
